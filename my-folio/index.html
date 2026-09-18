@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Advaith Manoj | Software Development Engineer &amp; Systems Architecture</title>
+<!-- Fonts: Barlow Condensed (Athletic/Motorsport Display), Geist/Inter (Clean Body), JetBrains Mono (Telemetry/Code) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+      ::-webkit-scrollbar { display: none; }
+    }
+    
+    /* Motorsport racing grid & speed-line accents */
+    .carbon-grid {
+      background-image: radial-gradient(rgba(255, 107, 0, 0.08) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+    .light .carbon-grid {
+      background-image: radial-gradient(rgba(255, 107, 0, 0.09) 1px, transparent 0);
+    }
+    
+    /* Subtle high-tech speed slash cut */
+    .slanted-corner {
+      clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            // McLaren LN4 Papaya Orange Core Palette
+            papaya: {
+              DEFAULT: '#FF6B00',
+              glow: '#FF7A00',
+              light: '#FF9442',
+              dark: '#D95300',
+              surface: 'rgba(255, 107, 0, 0.08)',
+            },
+            // Dark Mode: Deep Carbon / Matte Anthracite
+            carbon: {
+              950: '#0a0c10',
+              900: '#0e1015',
+              850: '#14171f',
+              800: '#1c2029',
+              700: '#282d3a',
+              600: '#383f4f',
+              border: '#242936'
+            },
+            // Light Mode: Clean Athletic Off-White & Concrete
+            track: {
+              50: '#f8f9fa',
+              100: '#f1f3f5',
+              200: '#e5e7eb',
+              300: '#d1d5db',
+              text: '#111827',
+              subtext: '#4b5563'
+            }
+          },
+          fontFamily: {
+            headline: ['"Barlow Condensed"', 'sans-serif'],
+            body: ['"Geist"', 'Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-track-50 text-track-text dark:bg-carbon-900 dark:text-[#f3f4f6] font-body transition-colors duration-300 antialiased selection:bg-papaya selection:text-white">
+<!-- Racing Ambient Glow Effects -->
+<div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+<div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-papaya/10 dark:bg-papaya/15 blur-[120px] rounded-full"></div>
+<div class="absolute top-1/3 -left-32 w-[400px] h-[400px] bg-papaya/5 dark:bg-papaya/10 blur-[100px] rounded-full"></div>
+<div class="absolute inset-0 carbon-grid opacity-60 pointer-events-none"></div>
+</div>
+<!-- NAVIGATION BAR (Sleek Pit-Wall Telemetry Header) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-track-50/90 dark:bg-carbon-900/90 backdrop-blur-md border-b border-track-200 dark:border-carbon-border transition-colors duration-300">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<!-- Brand / Logo with LN4 inspired athletic badge -->
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 group focus:outline-none" href="#about">
+<div class="w-8 h-8 rounded bg-papaya flex items-center justify-center font-headline font-black italic text-xl text-black tracking-tighter transform -skew-x-12 group-hover:scale-105 transition-transform shadow-md shadow-papaya/30">
+            AM4
+          </div>
+<div class="flex flex-col">
+<span class="font-headline font-extrabold uppercase text-lg tracking-wider leading-none text-track-text dark:text-white flex items-center gap-1">
+              ADVAITH <span class="text-papaya font-black">MANOJ</span>
+</span>
+<span class="font-mono text-[10px] tracking-widest text-track-subtext dark:text-gray-400 uppercase font-medium">SDE // SYS.ARCH</span>
+</div>
+</a>
+<!-- Status Tag (McLaren Racing telemetry badge) -->
+<div class="hidden md:flex items-center gap-2 px-2.5 py-1 rounded-full bg-papaya/10 border border-papaya/30 text-papaya">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-papaya opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-papaya"></span>
+</span>
+<span class="font-mono text-[11px] font-bold tracking-wider uppercase">P1 :: OPEN TO ROLES</span>
+</div>
+</div>
+<!-- Center Nav Links -->
+<nav class="hidden lg:flex items-center gap-6">
+<a class="font-headline text-base uppercase tracking-wider font-semibold text-track-subtext hover:text-papaya dark:text-gray-300 dark:hover:text-papaya transition-colors" href="#about">01 // About</a>
+<a class="font-headline text-base uppercase tracking-wider font-semibold text-track-subtext hover:text-papaya dark:text-gray-300 dark:hover:text-papaya transition-colors" href="#experience">02 // Experience</a>
+<a class="font-headline text-base uppercase tracking-wider font-semibold text-track-subtext hover:text-papaya dark:text-gray-300 dark:hover:text-papaya transition-colors" href="#projects">03 // Projects</a>
+<a class="font-headline text-base uppercase tracking-wider font-semibold text-track-subtext hover:text-papaya dark:text-gray-300 dark:hover:text-papaya transition-colors" href="#leadership">04 // Leadership</a>
+<a class="font-headline text-base uppercase tracking-wider font-semibold text-track-subtext hover:text-papaya dark:text-gray-300 dark:hover:text-papaya transition-colors" href="#education">05 // Academics</a>
+<a class="font-headline text-base uppercase tracking-wider font-semibold text-track-subtext hover:text-papaya dark:text-gray-300 dark:hover:text-papaya transition-colors" href="#contact">06 // Terminal</a>
+</nav>
+<!-- Right Action Tools: Light/Dark Toggle + Social Links + Terminal CTA -->
+<div class="flex items-center gap-2.5">
+<!-- Interactive Light/Dark Mode Switcher -->
+<button aria-label="Toggle theme" class="p-2 rounded-lg border border-track-200 dark:border-carbon-700 bg-track-100 dark:bg-carbon-800 text-track-subtext dark:text-gray-200 hover:text-papaya dark:hover:text-papaya hover:border-papaya/40 transition-all focus:outline-none" id="theme-toggle" type="button">
+<span class="material-symbols-outlined text-[20px] dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined text-[20px] hidden dark:inline">light_mode</span>
+</button>
+<!-- GitHub -->
+<a aria-label="GitHub Profile" class="p-2 rounded-lg border border-track-200 dark:border-carbon-700 bg-track-100 dark:bg-carbon-800 text-track-subtext dark:text-gray-300 hover:text-papaya dark:hover:text-papaya hover:border-papaya/40 transition-all" href="https://github.com/advaithmanoj-05" rel="noreferrer" target="_blank" title="GitHub: advaithmanoj-05">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg>
+</a>
+<!-- LinkedIn -->
+<a aria-label="LinkedIn Profile" class="p-2 rounded-lg border border-track-200 dark:border-carbon-700 bg-track-100 dark:bg-carbon-800 text-track-subtext dark:text-gray-300 hover:text-papaya dark:hover:text-papaya hover:border-papaya/40 transition-all" href="https://www.linkedin.com/in/advaith-manoj-023b12291" rel="noreferrer" target="_blank" title="LinkedIn: Advaith Manoj">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+<!-- LeetCode -->
+<a aria-label="LeetCode Profile" class="p-2 rounded-lg border border-track-200 dark:border-carbon-700 bg-track-100 dark:bg-carbon-800 text-track-subtext dark:text-gray-300 hover:text-papaya dark:hover:text-papaya hover:border-papaya/40 transition-all font-mono text-xs font-bold" href="https://leetcode.com/u/advaithmanoj-05/" rel="noreferrer" target="_blank" title="LeetCode: advaithmanoj-05">
+            [LC]
+          </a>
+<!-- Contact CTA Button -->
+<a class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded font-headline text-base uppercase font-bold tracking-wider bg-papaya hover:bg-papaya-light text-black transition-all shadow-md shadow-papaya/20 transform -skew-x-6 hover:-skew-x-3" href="#contact">
+<span class="transform skew-x-6">DEPLOY // CONTACT</span>
+</a>
+</div>
+</div>
+</header>
+<main class="relative z-10 pt-20 md:pt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20 md:space-y-28 pb-20">
+<!-- HERO SECTION: Athletic Motorsport SDE Presentation -->
+<section class="pt-6 md:pt-10" id="about">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<!-- Left: Engineering Bio & Speed Credentials (7 cols) -->
+<div class="lg:col-span-7 flex flex-col space-y-5">
+<!-- Racing Live Status Pill -->
+<div class="flex flex-wrap items-center gap-2">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-track-100 dark:bg-carbon-800 border-l-4 border-papaya border-y border-r border-track-200 dark:border-carbon-700">
+<span class="w-2 h-2 rounded-full bg-papaya animate-pulse"></span>
+<span class="font-mono text-xs font-semibold text-papaya tracking-wider uppercase">STATUS::AVAILABLE</span>
+<span class="text-xs text-track-subtext dark:text-gray-400 font-mono">// Trivandrum, Kerala</span>
+</div>
+<span class="text-xs font-mono px-2 py-1 rounded bg-track-200 dark:bg-carbon-800 text-track-subtext dark:text-gray-400 uppercase tracking-widest font-medium">FULL-STACK &amp; SYSTEMS ENGINEER</span>
+</div>
+<!-- Bold Motorsport Typographic Name -->
+<div class="space-y-1">
+<div class="flex items-center gap-2 font-mono text-xs text-papaya uppercase tracking-widest font-semibold">
+<span>SYSTEM.INITIALIZE</span>
+<span class="text-track-300 dark:text-carbon-600">///</span>
+<span>CAR_04 // ADVAITH_MANOJ</span>
+</div>
+<h1 class="font-headline text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-track-text dark:text-white leading-[0.9]">
+              ADVAITH <span class="text-transparent bg-clip-text bg-gradient-to-r from-papaya via-papaya-light to-amber-400">MANOJ</span>
+</h1>
+<p class="font-headline text-xl sm:text-2xl md:text-3xl font-bold uppercase tracking-wide text-track-subtext dark:text-gray-300">
+              Software Development Engineer <span class="text-papaya font-black">/</span> Full-Stack &amp; Systems Architecture
+            </p>
+</div>
+<!-- Narrative Bio directly from Resume -->
+<p class="font-body text-base sm:text-lg text-track-subtext dark:text-gray-300 leading-relaxed max-w-2xl font-normal">
+            Computer Science major with hands-on experience designing and shipping backend systems and full-stack applications across Python (FastAPI, Flask), Java (Spring Boot), and JavaScript/TypeScript (React, Next.js). Built production REST APIs, authentication systems, and relational database schemas spanning internship, freelance, and academic engagements, with a focus on clean state management and system design.
+          </p>
+<!-- Core Tech Matrix Badges (Strict CV Technical Skills) -->
+<div class="space-y-2 pt-2">
+<div class="font-mono text-xs font-bold text-track-subtext dark:text-gray-400 uppercase tracking-widest flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-papaya"></span> ACTIVE RUNTIME STACK &amp; SPEC PRIMITIVES
+            </div>
+<div class="flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded bg-track-100 dark:bg-carbon-800 border border-track-200 dark:border-carbon-700 font-mono text-xs font-semibold text-track-text dark:text-gray-200 flex items-center gap-1.5 hover:border-papaya/50 transition-colors">
+<span class="w-1.5 h-1.5 rounded-full bg-papaya"></span>Python
+              </span>
+<span class="px-2.5 py-1 rounded bg-track-100 dark:bg-carbon-800 border border-track-200 dark:border-carbon-700 font-mono text-xs font-semibold text-track-text dark:text-gray-200 flex items-center gap-1.5 hover:border-papaya/50 transition-colors">
+<span class="w-1.5 h-1.5 rounded-full bg-papaya"></span>FastAPI
+              </span>
+<span class="px-2.5 py-1 rounded bg-track-100 dark:bg-carbon-800 border border-track-200 dark:border-carbon-700 font-mono text-xs font-semibold text-track-text dark:text-gray-200 flex items-center gap-1.5 hover:border-papaya/50 transition-colors">
+<span class="w-1.5 h-1.5 rounded-full bg-papaya"></span>Spring Boot
+              </span>
+<span class="px-2.5 py-1 rounded bg-track-100 dark:bg-carbon-800 border border-track-200 dark:border-carbon-700 font-mono text-xs font-semibold text-track-text dark:text-gray-200 flex items-center gap-1.5 hover:border-papaya/50 transition-colors">
+<span class="w-1.5 h-1.5 rounded-full bg-papaya"></span>React
+              </span>
+<span class="px-2.5 py-1 rounded bg-track-100 dark:bg-carbon-800 border border-track-200 dark:border-carbon-700 font-mono text-xs font-semibold text-track-text dark:text-gray-200 flex items-center gap-1.5 hover:border-papaya/50 transition-colors">
+<span class="w-1.5 h-1.5 rounded-full bg-papaya"></span>Next.js
+              </span>
+<span class="px-2.5 py-1 rounded bg-track-100 dark:bg-carbon-800 border border-track-200 dark:border-carbon-700 font-mono text-xs font-semibold text-track-text dark:text-gray-200 flex items-center gap-1.5 hover:border-papaya/50 transition-colors">
+<span class="w-1.5 h-1.5 rounded-full bg-papaya"></span>PostgreSQL
+              </span>
+<span class="px-2.5 py-1 rounded bg-track-100 dark:bg-carbon-800 border border-track-200 dark:border-carbon-700 font-mono text-xs font-semibold text-track-text dark:text-gray-200 flex items-center gap-1.5 hover:border-papaya/50 transition-colors">
+<span class="w-1.5 h-1.5 rounded-full bg-papaya"></span>MySQL
+              </span>
+<span class="px-2.5 py-1 rounded bg-track-100 dark:bg-carbon-800 border border-track-200 dark:border-carbon-700 font-mono text-xs font-semibold text-track-text dark:text-gray-200 flex items-center gap-1.5 hover:border-papaya/50 transition-colors">
+<span class="w-1.5 h-1.5 rounded-full bg-papaya"></span>Supabase
+              </span>
+<span class="px-2.5 py-1 rounded bg-track-100 dark:bg-carbon-800 border border-track-200 dark:border-carbon-700 font-mono text-xs font-semibold text-track-text dark:text-gray-200 flex items-center gap-1.5 hover:border-papaya/50 transition-colors">
+<span class="w-1.5 h-1.5 rounded-full bg-papaya"></span>Docker
+              </span>
+<span class="px-2.5 py-1 rounded bg-track-100 dark:bg-carbon-800 border border-track-200 dark:border-carbon-700 font-mono text-xs font-semibold text-track-text dark:text-gray-200 flex items-center gap-1.5 hover:border-papaya/50 transition-colors">
+<span class="w-1.5 h-1.5 rounded-full bg-papaya"></span>Cloudflare
+              </span>
+<span class="px-2.5 py-1 rounded bg-track-100 dark:bg-carbon-800 border border-track-200 dark:border-carbon-700 font-mono text-xs font-semibold text-track-text dark:text-gray-200 flex items-center gap-1.5 hover:border-papaya/50 transition-colors">
+<span class="w-1.5 h-1.5 rounded-full bg-papaya"></span>Hugging Face
+              </span>
+</div>
+</div>
+<!-- CTAs & Social Links -->
+<div class="flex flex-wrap items-center gap-4 pt-3">
+<a class="px-6 py-3 rounded bg-papaya hover:bg-papaya-light text-black font-headline text-lg uppercase font-bold tracking-wider transition-all flex items-center gap-2 shadow-lg shadow-papaya/25 transform -skew-x-6 hover:-skew-x-3" href="#projects">
+<span class="transform skew-x-6 flex items-center gap-1.5">
+                Explore Projects
+                <span class="material-symbols-outlined text-[18px]">speed</span>
+</span>
+</a>
+<a class="px-5 py-3 rounded bg-track-100 dark:bg-carbon-800 border border-track-200 dark:border-carbon-700 hover:border-papaya/60 text-track-text dark:text-white font-headline text-lg uppercase font-bold tracking-wider transition-all flex items-center gap-2" href="#experience">
+<span class="material-symbols-outlined text-[18px] text-papaya">work</span>
+<span>Career Experience</span>
+</a>
+<!-- Social Links -->
+<div class="flex items-center gap-2 pl-2">
+<a aria-label="GitHub" class="p-2.5 rounded bg-track-100 dark:bg-carbon-800 border border-track-200 dark:border-carbon-700 text-track-subtext dark:text-gray-300 hover:text-papaya hover:border-papaya transition-colors" href="https://github.com/advaithmanoj-05" rel="noreferrer" target="_blank">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg>
+</a>
+<a aria-label="LinkedIn" class="p-2.5 rounded bg-track-100 dark:bg-carbon-800 border border-track-200 dark:border-carbon-700 text-track-subtext dark:text-gray-300 hover:text-papaya hover:border-papaya transition-colors" href="https://www.linkedin.com/in/advaith-manoj-023b12291" rel="noreferrer" target="_blank">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+<a aria-label="Email" class="p-2.5 rounded bg-track-100 dark:bg-carbon-800 border border-track-200 dark:border-carbon-700 text-track-subtext dark:text-gray-300 hover:text-papaya hover:border-papaya transition-colors" href="mailto:advaithmanojkumar@gmail.com">
+<span class="material-symbols-outlined text-[20px]">alternate_email</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Right: Prominent Photo Treatment (Motorsport Athletic Framed Card) (5 cols) -->
+<div class="lg:col-span-5 flex justify-center lg:justify-end">
+<div class="relative w-full max-w-sm sm:max-w-md">
+<!-- Diagonal Racing Border Accent / Speed Lines Background -->
+<div class="absolute -inset-1.5 bg-gradient-to-tr from-papaya via-papaya-dark to-amber-500 rounded-2xl opacity-90 blur-sm transform -rotate-1"></div>
+<!-- Main Photo Container -->
+<div class="relative rounded-2xl bg-track-100 dark:bg-carbon-850 border-2 border-papaya/40 dark:border-papaya/30 overflow-hidden shadow-2xl p-2.5">
+<!-- Top telemetry HUD bar on photo -->
+<div class="flex items-center justify-between px-3 py-1.5 mb-2 bg-track-200/80 dark:bg-carbon-900/90 rounded border border-track-300/60 dark:border-carbon-700 font-mono text-[11px]">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-papaya"></span>
+<span class="font-bold text-papaya">LN4::SPEC</span>
+</div>
+<span class="text-track-subtext dark:text-gray-400">ENGINEER::04</span>
+<span class="font-semibold text-track-text dark:text-white">SYS_RT_VERIFIED</span>
+</div>
+<!-- Portrait Photo Frame -->
+<div class="relative w-full h-[400px] sm:h-[450px] rounded-xl overflow-hidden bg-carbon-950 flex flex-col justify-end p-6">
+<img alt="Advaith Manoj - SDE &amp; Systems Engineer" class="absolute inset-0 w-full h-full object-cover object-top filter contrast-105 hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyLLokcT2jJhwltajNtZX3FoBEBEXDslzBakzgK_8y8_OP76Z4hAODRKMl0QXYwLcepVTftnhSCO-hbHo0091XUt2PrEn7N13l3dZ9B1Wyr7wUUHEekTDqgcVvbqvo5lyfjkB_MsotOHjwlb8UjjnexZAbOdzSF0P7MF3OBu-ZKE7ki4wKCxA7Mg5JMya7A_gaUCXU8xcAaohlXwPqgoyjuvIQW_W937vcyAOLjVhcGg7EBvBWJCfAq4QgQ5v-SGAc"/>
+<!-- Racing gradient tint overlay at bottom of photo -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+<!-- Subtle motorsport racing stripes corner overlay -->
+<div class="absolute top-3 right-3 flex flex-col gap-1 items-end opacity-80 pointer-events-none">
+<div class="w-12 h-1 bg-papaya transform -skew-x-12"></div>
+<div class="w-8 h-1 bg-white transform -skew-x-12"></div>
+<div class="w-4 h-1 bg-papaya transform -skew-x-12"></div>
+</div>
+<!-- Driver / Engineer HUD Tag on image bottom -->
+<div class="relative z-10 p-3 rounded-lg bg-black/75 backdrop-blur-md border border-white/10 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline text-2xl font-black uppercase tracking-wider text-white leading-none">
+                      ADVAITH <span class="text-papaya">MANOJ</span>
+</span>
+<span class="font-mono text-[10px] text-gray-400 uppercase tracking-widest pt-0.5">SDE // Systems &amp; Backend</span>
+</div>
+<div class="px-2 py-1 rounded bg-papaya text-black font-headline font-black text-sm uppercase italic tracking-tighter">
+                    #04 SDE
+                  </div>
+</div>
+</div>
+<!-- Bottom Status Spec row -->
+<div class="grid grid-cols-3 gap-1.5 mt-2 pt-1 font-mono text-[11px] text-center text-track-subtext dark:text-gray-300">
+<div class="py-1 px-1.5 bg-track-200/60 dark:bg-carbon-900 rounded">
+<span class="text-[9px] block text-gray-500 uppercase">Core</span>
+<span class="font-bold text-papaya">Python/Java</span>
+</div>
+<div class="py-1 px-1.5 bg-track-200/60 dark:bg-carbon-900 rounded">
+<span class="text-[9px] block text-gray-500 uppercase">Education</span>
+<span class="font-bold text-track-text dark:text-white">B.Tech CSE</span>
+</div>
+<div class="py-1 px-1.5 bg-track-200/60 dark:bg-carbon-900 rounded">
+<span class="text-[9px] block text-gray-500 uppercase">CGPA</span>
+<span class="font-bold text-emerald-500 dark:text-emerald-400">7.80</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: HIGH-DENSITY MOTORSPORT TELEMETRY METRICS BAR -->
+<section class="w-full">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+<!-- Metric 1: Academic CGPA -->
+<div class="p-4 sm:p-5 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border relative overflow-hidden group hover:border-papaya/50 transition-all">
+<div class="absolute top-0 right-0 w-12 h-1 bg-papaya"></div>
+<div class="flex items-center justify-between pb-1">
+<span class="font-mono text-xs text-track-subtext dark:text-gray-400 uppercase tracking-widest font-semibold">B.TECH CSE CGPA</span>
+<span class="material-symbols-outlined text-papaya text-lg">school</span>
+</div>
+<div class="font-headline text-4xl sm:text-5xl font-black text-track-text dark:text-white tracking-tight">
+            7.80<span class="text-papaya text-2xl font-bold ml-0.5">/10</span>
+</div>
+<p class="font-mono text-[11px] text-track-subtext dark:text-gray-400 pt-1">Mar Baselios College // S6 2026</p>
+</div>
+<!-- Metric 2: Peer Mentorship -->
+<div class="p-4 sm:p-5 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border relative overflow-hidden group hover:border-papaya/50 transition-all">
+<div class="absolute top-0 right-0 w-12 h-1 bg-papaya"></div>
+<div class="flex items-center justify-between pb-1">
+<span class="font-mono text-xs text-track-subtext dark:text-gray-400 uppercase tracking-widest font-semibold">DSA MENTORSHIP</span>
+<span class="material-symbols-outlined text-papaya text-lg">group</span>
+</div>
+<div class="font-headline text-4xl sm:text-5xl font-black text-track-text dark:text-white tracking-tight">
+            50+<span class="text-papaya text-2xl font-bold ml-0.5">PEERS</span>
+</div>
+<p class="font-mono text-[11px] text-track-subtext dark:text-gray-400 pt-1">LeetCode &amp; Algorithmic Patterns</p>
+</div>
+<!-- Metric 3: Hackathon Wins & SIH -->
+<div class="p-4 sm:p-5 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border relative overflow-hidden group hover:border-papaya/50 transition-all">
+<div class="absolute top-0 right-0 w-12 h-1 bg-papaya"></div>
+<div class="flex items-center justify-between pb-1">
+<span class="font-mono text-xs text-track-subtext dark:text-gray-400 uppercase tracking-widest font-semibold">HACKATHONS</span>
+<span class="material-symbols-outlined text-papaya text-lg">emoji_events</span>
+</div>
+<div class="font-headline text-4xl sm:text-5xl font-black text-track-text dark:text-white tracking-tight">
+            2x<span class="text-papaya text-2xl font-bold ml-0.5">WINNER</span>
+</div>
+<p class="font-mono text-[11px] text-track-subtext dark:text-gray-400 pt-1">Sphota 24h &amp; SIH 24/25 Qualifier</p>
+</div>
+<!-- Metric 4: Community Leadership -->
+<div class="p-4 sm:p-5 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border relative overflow-hidden group hover:border-papaya/50 transition-all">
+<div class="absolute top-0 right-0 w-12 h-1 bg-papaya"></div>
+<div class="flex items-center justify-between pb-1">
+<span class="font-mono text-xs text-track-subtext dark:text-gray-400 uppercase tracking-widest font-semibold">IEDC COO IMPACT</span>
+<span class="material-symbols-outlined text-papaya text-lg">workspace_premium</span>
+</div>
+<div class="font-headline text-4xl sm:text-5xl font-black text-papaya tracking-tight">
+            500+<span class="text-track-text dark:text-white text-2xl font-normal ml-0.5">DEV</span>
+</div>
+<p class="font-mono text-[11px] text-track-subtext dark:text-gray-400 pt-1">Directed Boot Camps &amp; Mr. Inceptra</p>
+</div>
+</div>
+</section>
+<!-- SECTION 3: WORK EXPERIENCE LOG (Detailed Timeline Cards from CV) -->
+<section class="space-y-6" id="experience">
+<div class="border-b border-track-200 dark:border-carbon-border pb-4">
+<div class="flex items-center gap-2 font-mono text-xs text-papaya font-bold uppercase tracking-wider">
+<span class="w-2 h-2 bg-papaya"></span>
+<span>CAREER.LOG // PROFESSIONAL TELEMETRY</span>
+</div>
+<h2 class="font-headline text-4xl sm:text-5xl font-black uppercase text-track-text dark:text-white tracking-tight">
+          SOFTWARE DEVELOPMENT EXPERIENCE
+        </h2>
+<p class="font-body text-sm sm:text-base text-track-subtext dark:text-gray-300 max-w-2xl">
+          Production REST APIs, LAN-first healthcare architectures, and enterprise checklist controllers shipped across startup, freelance, and intern roles.
+        </p>
+</div>
+<div class="space-y-6">
+<!-- Experience 1: Obsidyne -->
+<div class="p-6 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border hover:border-papaya/60 transition-all relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-papaya"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-3 border-b border-track-200 dark:border-carbon-700/60">
+<div>
+<div class="flex items-center gap-2 font-mono text-xs text-papaya font-bold uppercase">
+<span>Obsidyne</span>
+<span class="text-track-subtext dark:text-gray-500">//</span>
+<span class="text-track-text dark:text-gray-200">Software Developer</span>
+</div>
+<h3 class="font-headline text-2xl sm:text-3xl font-bold uppercase text-track-text dark:text-white pt-1">
+              Production E-Commerce Backend &amp; Microservices
+            </h3>
+</div>
+<div class="flex flex-col md:items-end font-mono text-xs text-track-subtext dark:text-gray-400">
+<span class="px-2.5 py-1 rounded bg-papaya/10 text-papaya border border-papaya/30 font-bold uppercase">Mar 2025 – Present</span>
+<span class="text-[11px] pt-1">Trivandrum, Kerala</span>
+</div>
+</div>
+<ul class="mt-4 space-y-2 font-body text-sm text-track-subtext dark:text-gray-300">
+<li class="flex items-start gap-2">
+<span class="text-papaya font-bold font-mono">▸</span>
+<span>Developed RESTful APIs with FastAPI powering the production e-commerce backend for the Lytemaster brand, serving live customer traffic.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-papaya font-bold font-mono">▸</span>
+<span>Built a MySQL-backed inventory management service, streamlining stock-tracking workflows for the operations team.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-papaya font-bold font-mono">▸</span>
+<span>Delivered front-end UI components end-to-end, partnering across the stack to ship production-ready features on tight timelines.</span>
+</li>
+</ul>
+<div class="flex flex-wrap gap-2 pt-4">
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-xs text-papaya font-semibold">FastAPI</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-xs text-track-subtext dark:text-gray-300">Python</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-xs text-track-subtext dark:text-gray-300">MySQL</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-xs text-track-subtext dark:text-gray-300">REST APIs</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-xs text-track-subtext dark:text-gray-300">Inventory Systems</span>
+</div>
+</div>
+<!-- Experience 2: CDC Medical College -->
+<div class="p-6 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border hover:border-papaya/60 transition-all relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-papaya"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-3 border-b border-track-200 dark:border-carbon-700/60">
+<div>
+<div class="flex items-center gap-2 font-mono text-xs text-papaya font-bold uppercase">
+<span>Child Development Centre, Medical College Trivandrum</span>
+<span class="text-track-subtext dark:text-gray-500">//</span>
+<span class="text-track-text dark:text-gray-200">Freelance</span>
+</div>
+<h3 class="font-headline text-2xl sm:text-3xl font-bold uppercase text-track-text dark:text-white pt-1">
+              System Architect &amp; Software Developer
+            </h3>
+</div>
+<div class="flex flex-col md:items-end font-mono text-xs text-track-subtext dark:text-gray-400">
+<span class="px-2.5 py-1 rounded bg-papaya/10 text-papaya border border-papaya/30 font-bold uppercase">Sep 2025 – Present</span>
+<span class="text-[11px] pt-1">Trivandrum, Kerala</span>
+</div>
+</div>
+<ul class="mt-4 space-y-2 font-body text-sm text-track-subtext dark:text-gray-300">
+<li class="flex items-start gap-2">
+<span class="text-papaya font-bold font-mono">▸</span>
+<span>Architected a localized, LAN-first deployment strategy ensuring offline reliability and strict patient data privacy without dependency on external cloud infrastructure.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-papaya font-bold font-mono">▸</span>
+<span>Built a responsive React frontend backed by FastAPI REST APIs, with a PostgreSQL schema architecture supporting historical medical records.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-papaya font-bold font-mono">▸</span>
+<span>Extending the system's data model and infrastructure to support broader patient history tracking as the client's needs scale.</span>
+</li>
+</ul>
+<div class="flex flex-wrap gap-2 pt-4">
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-xs text-papaya font-semibold">React</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-xs text-papaya font-semibold">FastAPI</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-xs text-track-subtext dark:text-gray-300">PostgreSQL</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-xs text-track-subtext dark:text-gray-300">LAN-First Architecture</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-xs text-track-subtext dark:text-gray-300">Healthcare EHR</span>
+</div>
+</div>
+<!-- Experience 3: H&R Block -->
+<div class="p-6 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border hover:border-papaya/60 transition-all relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-papaya"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-3 border-b border-track-200 dark:border-carbon-700/60">
+<div>
+<div class="flex items-center gap-2 font-mono text-xs text-papaya font-bold uppercase">
+<span>H&amp;R Block (Technopark)</span>
+<span class="text-track-subtext dark:text-gray-500">//</span>
+<span class="text-track-text dark:text-gray-200">Internship</span>
+</div>
+<h3 class="font-headline text-2xl sm:text-3xl font-bold uppercase text-track-text dark:text-white pt-1">
+              Software Development Intern
+            </h3>
+</div>
+<div class="flex flex-col md:items-end font-mono text-xs text-track-subtext dark:text-gray-400">
+<span class="px-2.5 py-1 rounded bg-track-200 dark:bg-carbon-800 text-track-text dark:text-gray-200 border border-track-300 dark:border-carbon-700 font-bold uppercase">Dec 2024 – Jan 2025</span>
+<span class="text-[11px] pt-1">Trivandrum, Kerala</span>
+</div>
+</div>
+<ul class="mt-4 space-y-2 font-body text-sm text-track-subtext dark:text-gray-300">
+<li class="flex items-start gap-2">
+<span class="text-papaya font-bold font-mono">▸</span>
+<span>Developed a .NET API controller managing a 30+ configurable options checklist backed by a JSON data store.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-papaya font-bold font-mono">▸</span>
+<span>Built an Angular front-end delivering the checklist experience, with all 30+ options synced to the backend via REST endpoints.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-papaya font-bold font-mono">▸</span>
+<span>Refined the Angular application's CSS layout, improving usability and consistency across all option panels.</span>
+</li>
+</ul>
+<div class="flex flex-wrap gap-2 pt-4">
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-xs text-papaya font-semibold">.NET API</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-xs text-track-subtext dark:text-gray-300">Angular</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-xs text-track-subtext dark:text-gray-300">JSON Data Store</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-xs text-track-subtext dark:text-gray-300">REST Endpoints</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-xs text-track-subtext dark:text-gray-300">CSS Layout</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: PROJECTS CATALOG (Filterable Real Resume Projects) -->
+<section class="space-y-6" id="projects">
+<!-- Section Header with Filter Controls -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-track-200 dark:border-carbon-border pb-4">
+<div>
+<div class="flex items-center gap-2 font-mono text-xs text-papaya font-bold uppercase tracking-wider">
+<span class="w-2 h-2 bg-papaya"></span>
+<span>CATALOG.PROJECTS // RUNTIME SPEC</span>
+</div>
+<h2 class="font-headline text-4xl sm:text-5xl font-black uppercase text-track-text dark:text-white tracking-tight">
+            FEATURED PROJECTS &amp; CORE SYSTEMS
+          </h2>
+<p class="font-body text-sm sm:text-base text-track-subtext dark:text-gray-300 max-w-2xl">
+            LLM-powered cloud APIs, placement training suites, hackathon-winning document architectures, embedded IoT safety systems, and core Python state engines.
+          </p>
+</div>
+<!-- Filter Pills with LN4 athletic styling -->
+<div class="flex items-center gap-1.5 p-1 rounded-lg bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-700 overflow-x-auto">
+<button class="filter-pill active-pill px-3 py-1 rounded font-mono text-xs font-bold uppercase transition-all bg-papaya text-black" data-filter="all" type="button">
+            [ALL]
+          </button>
+<button class="filter-pill px-3 py-1 rounded font-mono text-xs font-semibold uppercase transition-all text-track-subtext dark:text-gray-300 hover:text-papaya" data-filter="featured" type="button">
+            [FEATURED]
+          </button>
+<button class="filter-pill px-3 py-1 rounded font-mono text-xs font-semibold uppercase transition-all text-track-subtext dark:text-gray-300 hover:text-papaya" data-filter="systems" type="button">
+            [SYSTEMS]
+          </button>
+<button class="filter-pill px-3 py-1 rounded font-mono text-xs font-semibold uppercase transition-all text-track-subtext dark:text-gray-300 hover:text-papaya" data-filter="fullstack" type="button">
+            [FULL-STACK]
+          </button>
+<button class="filter-pill px-3 py-1 rounded font-mono text-xs font-semibold uppercase transition-all text-track-subtext dark:text-gray-300 hover:text-papaya" data-filter="ai-cloud" type="button">
+            [AI &amp; CLOUD]
+          </button>
+<button class="filter-pill px-3 py-1 rounded font-mono text-xs font-semibold uppercase transition-all text-track-subtext dark:text-gray-300 hover:text-papaya" data-filter="python" type="button">
+            [PYTHON]
+          </button>
+</div>
+</div>
+<!-- Projects Grid (7 Cards from CV) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+<!-- Project 1: AI-Powered Resume Screening -->
+<article class="project-card flex flex-col justify-between p-5 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border hover:border-papaya transition-all shadow-sm group" data-category="featured ai-cloud python">
+<div class="space-y-3">
+<div class="flex items-center justify-between font-mono text-xs pb-1">
+<span class="flex items-center gap-1.5 text-papaya font-semibold">
+<span class="w-2 h-2 rounded-full bg-papaya"></span>
+                ai::cloud_module
+              </span>
+<span class="px-2 py-0.5 rounded bg-papaya/10 text-papaya border border-papaya/30 font-bold uppercase text-[10px]">QWEN LLM</span>
+</div>
+<h3 class="font-headline text-2xl font-bold uppercase text-track-text dark:text-white group-hover:text-papaya transition-colors">
+              AI Resume Screening Cloud API Module
+            </h3>
+<p class="font-body text-sm text-track-subtext dark:text-gray-300 leading-relaxed">
+              Built a semantic matching and parsing pipeline integrating the Qwen LLM to score resume–job description compatibility beyond basic keyword overlap. Deployed inference on Hugging Face with Cloudflare Workers/Tunnels.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-papaya">Python</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-papaya">FastAPI</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-track-subtext dark:text-gray-300">Qwen LLM</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-track-subtext dark:text-gray-300">Cloudflare</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-5 border-t border-track-200 dark:border-carbon-700/60 mt-4">
+<div class="flex items-center gap-3 font-mono text-xs">
+<a class="flex items-center gap-1 text-track-subtext dark:text-gray-300 hover:text-papaya transition-colors" href="https://github.com/advaithmanoj-05" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[15px]">code</span>
+<span>repo::src</span>
+</a>
+</div>
+<span class="font-mono text-xs font-bold text-papaya">Low-Latency Edge</span>
+</div>
+</article>
+<!-- Project 2: NexStep Placement Training Application -->
+<article class="project-card flex flex-col justify-between p-5 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border hover:border-papaya transition-all shadow-sm group" data-category="featured fullstack">
+<div class="space-y-3">
+<div class="flex items-center justify-between font-mono text-xs pb-1">
+<span class="flex items-center gap-1.5 text-papaya font-semibold">
+<span class="w-2 h-2 rounded-full bg-papaya"></span>
+                app::tpu_platform
+              </span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 text-track-text dark:text-gray-200 font-bold uppercase text-[10px]">SUPABASE + REACT</span>
+</div>
+<h3 class="font-headline text-2xl font-bold uppercase text-track-text dark:text-white group-hover:text-papaya transition-colors">
+              NexStep Placement Training Platform
+            </h3>
+<p class="font-body text-sm text-track-subtext dark:text-gray-300 leading-relaxed">
+              Full-stack placement platform with role-based auth (Student/Alumni/Admin) &amp; PostgreSQL triggers automating profile creation for TPO. Integrated Google Drive OAuth and QR-code attendance tracking.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-papaya">React</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-papaya">Supabase</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-track-subtext dark:text-gray-300">PostgreSQL</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-track-subtext dark:text-gray-300">OAuth / QR</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-5 border-t border-track-200 dark:border-carbon-700/60 mt-4">
+<div class="flex items-center gap-3 font-mono text-xs">
+<a class="flex items-center gap-1 text-track-subtext dark:text-gray-300 hover:text-papaya transition-colors" href="https://github.com/advaithmanoj-05" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[15px]">code</span>
+<span>repo::src</span>
+</a>
+</div>
+<span class="font-mono text-xs font-bold text-papaya">200+ Students</span>
+</div>
+</article>
+<!-- Project 3: Sentry KMRL Document Architecture -->
+<article class="project-card flex flex-col justify-between p-5 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border hover:border-papaya transition-all shadow-sm group" data-category="featured systems">
+<div class="space-y-3">
+<div class="flex items-center justify-between font-mono text-xs pb-1">
+<span class="flex items-center gap-1.5 text-papaya font-semibold">
+<span class="w-2 h-2 rounded-full bg-papaya"></span>
+                sih25::kmrl_doc
+              </span>
+<span class="px-2 py-0.5 rounded bg-papaya/10 text-papaya border border-papaya/30 font-bold uppercase text-[10px]">SIH 2025 NATIONAL</span>
+</div>
+<h3 class="font-headline text-2xl font-bold uppercase text-track-text dark:text-white group-hover:text-papaya transition-colors">
+              Sentry — Kochi Metro Rail Document Arch.
+            </h3>
+<p class="font-body text-sm text-track-subtext dark:text-gray-300 leading-relaxed">
+              Proposed and architected a centralized, intelligent document management solution for Kochi Metro Rail Limited (KMRL), streamlining administrative workflows with minimal UI/UX overhead. Advanced to SIH 2025 National Pool.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-papaya">System Architecture</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-track-subtext dark:text-gray-300">FastAPI</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-track-subtext dark:text-gray-300">KMRL Enterprise</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-5 border-t border-track-200 dark:border-carbon-700/60 mt-4">
+<div class="flex items-center gap-3 font-mono text-xs">
+<a class="flex items-center gap-1 text-track-subtext dark:text-gray-300 hover:text-papaya transition-colors" href="https://github.com/advaithmanoj-05" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[15px]">code</span>
+<span>repo::src</span>
+</a>
+</div>
+<span class="font-mono text-xs font-bold text-papaya">SIH 2025 Qualifier</span>
+</div>
+</article>
+<!-- Project 4: Aegis Smart Helmet Navigation -->
+<article class="project-card flex flex-col justify-between p-5 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border hover:border-papaya transition-all shadow-sm group" data-category="featured systems">
+<div class="space-y-3">
+<div class="flex items-center justify-between font-mono text-xs pb-1">
+<span class="flex items-center gap-1.5 text-papaya font-semibold">
+<span class="w-2 h-2 rounded-full bg-papaya"></span>
+                iot::hud_telemetry
+              </span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 text-track-text dark:text-gray-200 font-bold uppercase text-[10px]">EMBEDDED IOT</span>
+</div>
+<h3 class="font-headline text-2xl font-bold uppercase text-track-text dark:text-white group-hover:text-papaya transition-colors">
+              Aegis — Smart Helmet Navigation &amp; Telemetry
+            </h3>
+<p class="font-body text-sm text-track-subtext dark:text-gray-300 leading-relaxed">
+              Embedded IoT driving-assistance system for smart helmets featuring integrated Heads-Up Display (HUD), automated crash/SOS emergency alerts, and real-time Google Maps telemetry integration.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-papaya">Embedded IoT</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-track-subtext dark:text-gray-300">C++ / Python</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-track-subtext dark:text-gray-300">Google Maps API</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-5 border-t border-track-200 dark:border-carbon-700/60 mt-4">
+<div class="flex items-center gap-3 font-mono text-xs">
+<a class="flex items-center gap-1 text-track-subtext dark:text-gray-300 hover:text-papaya transition-colors" href="https://github.com/advaithmanoj-05" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[15px]">code</span>
+<span>repo::src</span>
+</a>
+</div>
+<span class="font-mono text-xs font-bold text-papaya">HUD Telemetry</span>
+</div>
+</article>
+<!-- Project 5: Dungeon Engine -->
+<article class="project-card flex flex-col justify-between p-5 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border hover:border-papaya transition-all shadow-sm group" data-category="systems python">
+<div class="space-y-3">
+<div class="flex items-center justify-between font-mono text-xs pb-1">
+<span class="flex items-center gap-1.5 text-papaya font-semibold">
+<span class="w-2 h-2 rounded-full bg-papaya"></span>
+                game::turn_engine
+              </span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 text-track-text dark:text-gray-200 font-bold uppercase text-[10px]">STATE MACHINE</span>
+</div>
+<h3 class="font-headline text-2xl font-bold uppercase text-track-text dark:text-white group-hover:text-papaya transition-colors">
+              Dungeon Engine — Turn-Based State Machine
+            </h3>
+<p class="font-body text-sm text-track-subtext dark:text-gray-300 leading-relaxed">
+              Built a deterministic, headless turn-based game engine modelling room resolution, hero equipment logic, and round states using Python dataclasses and OOP contracts with rigorous unit tests.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-papaya">Python</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-track-subtext dark:text-gray-300">Dataclasses</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-track-subtext dark:text-gray-300">OOP Contract</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-track-subtext dark:text-gray-300">Unit Tests</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-5 border-t border-track-200 dark:border-carbon-700/60 mt-4">
+<div class="flex items-center gap-3 font-mono text-xs">
+<a class="flex items-center gap-1 text-track-subtext dark:text-gray-300 hover:text-papaya transition-colors" href="https://github.com/advaithmanoj-05" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[15px]">code</span>
+<span>repo::src</span>
+</a>
+</div>
+<span class="font-mono text-xs font-bold text-papaya">100% Deterministic</span>
+</div>
+</article>
+<!-- Project 6: Automated File Organizer Script -->
+<article class="project-card flex flex-col justify-between p-5 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border hover:border-papaya transition-all shadow-sm group" data-category="python systems">
+<div class="space-y-3">
+<div class="flex items-center justify-between font-mono text-xs pb-1">
+<span class="flex items-center gap-1.5 text-papaya font-semibold">
+<span class="w-2 h-2 rounded-full bg-papaya"></span>
+                util::fs_automation
+              </span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 text-track-text dark:text-gray-200 font-bold uppercase text-[10px]">DAEMON SCRIPT</span>
+</div>
+<h3 class="font-headline text-2xl font-bold uppercase text-track-text dark:text-white group-hover:text-papaya transition-colors">
+              Automated File Organizer Script
+            </h3>
+<p class="font-body text-sm text-track-subtext dark:text-gray-300 leading-relaxed">
+              Background file-automation script that monitors directories using OS/Shutil modules to sort downloads by MIME type and extension, handling name collisions and duplicate files seamlessly.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-papaya">Python</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-track-subtext dark:text-gray-300">OS / Shutil</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-track-subtext dark:text-gray-300">MIME Parsing</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-5 border-t border-track-200 dark:border-carbon-700/60 mt-4">
+<div class="flex items-center gap-3 font-mono text-xs">
+<a class="flex items-center gap-1 text-track-subtext dark:text-gray-300 hover:text-papaya transition-colors" href="https://github.com/advaithmanoj-05" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[15px]">code</span>
+<span>repo::src</span>
+</a>
+</div>
+<span class="font-mono text-xs font-bold text-papaya">Directory Daemon</span>
+</div>
+</article>
+<!-- Project 7: Income Tax & Slab Calculator -->
+<article class="project-card flex flex-col justify-between p-5 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border hover:border-papaya transition-all shadow-sm group" data-category="python">
+<div class="space-y-3">
+<div class="flex items-center justify-between font-mono text-xs pb-1">
+<span class="flex items-center gap-1.5 text-papaya font-semibold">
+<span class="w-2 h-2 rounded-full bg-papaya"></span>
+                cli::tax_calc
+              </span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 text-track-text dark:text-gray-200 font-bold uppercase text-[10px]">CLI ENGINE</span>
+</div>
+<h3 class="font-headline text-2xl font-bold uppercase text-track-text dark:text-white group-hover:text-papaya transition-colors">
+              Income Tax &amp; Slab Calculator
+            </h3>
+<p class="font-body text-sm text-track-subtext dark:text-gray-300 leading-relaxed">
+              CLI tool computing progressive tax brackets, deductions, and exemptions across new and old Indian fiscal regimes, with input validation and clean slab breakdowns.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-papaya">Python</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-track-subtext dark:text-gray-300">CLI Tool</span>
+<span class="px-2 py-0.5 rounded bg-track-200 dark:bg-carbon-800 font-mono text-[11px] text-track-subtext dark:text-gray-300">Financial Logic</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-5 border-t border-track-200 dark:border-carbon-700/60 mt-4">
+<div class="flex items-center gap-3 font-mono text-xs">
+<a class="flex items-center gap-1 text-track-subtext dark:text-gray-300 hover:text-papaya transition-colors" href="https://github.com/advaithmanoj-05" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[15px]">code</span>
+<span>repo::src</span>
+</a>
+</div>
+<span class="font-mono text-xs font-bold text-papaya">Dual Regime Engine</span>
+</div>
+</article>
+</div>
+</section>
+<!-- SECTION 5: ENGINEERING PHILOSOPHY & COMPETENCIES (3 Motorsport Pillars) -->
+<section class="space-y-6" id="philosophy">
+<div class="border-b border-track-200 dark:border-carbon-border pb-4">
+<div class="flex items-center gap-2 font-mono text-xs text-papaya font-bold uppercase tracking-wider">
+<span class="w-2 h-2 bg-papaya"></span>
+<span>SYSTEMS.ARCHITECTURE // RIGOR &amp; PRINCIPLES</span>
+</div>
+<h2 class="font-headline text-4xl sm:text-5xl font-black uppercase text-track-text dark:text-white tracking-tight">
+          ENGINEERING PHILOSOPHY &amp; CORE COMPETENCIES
+        </h2>
+<p class="font-body text-sm sm:text-base text-track-subtext dark:text-gray-300 max-w-2xl">
+          Constructing reliable software requires predictable boundaries, strict typing from schema to wire, and fault-tolerant local failure modes.
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Pillar 1 -->
+<div class="p-6 rounded-xl bg-track-100 dark:bg-carbon-850 border-t-4 border-t-papaya border-x border-b border-track-200 dark:border-carbon-border flex flex-col justify-between space-y-4 hover:border-papaya/60 transition-all">
+<div class="space-y-3">
+<div class="w-12 h-12 rounded-lg bg-papaya/10 text-papaya flex items-center justify-center font-headline font-black text-xl">
+<span class="material-symbols-outlined text-[26px]">terminal</span>
+</div>
+<h3 class="font-headline text-2xl sm:text-3xl font-bold uppercase text-track-text dark:text-white">
+              High-Concurrency REST APIs
+            </h3>
+<p class="font-body text-sm text-track-subtext dark:text-gray-300 leading-relaxed">
+              Asynchronous I/O execution loops in FastAPI and Flask, Spring Boot service components, and .NET web controllers. Production configurations featuring relational database connection pooling (PostgreSQL, MySQL), strict Pydantic schemas, and optimized endpoints.
+            </p>
+</div>
+<div class="pt-3 border-t border-track-200 dark:border-carbon-700/60 font-mono text-xs space-y-1.5 text-track-subtext dark:text-gray-300">
+<div class="flex items-center gap-2">
+<span class="text-papaya font-bold">✓</span> FastAPI &amp; Spring Boot REST Endpoints
+            </div>
+<div class="flex items-center gap-2">
+<span class="text-papaya font-bold">✓</span> PostgreSQL &amp; MySQL Schema Architecture
+            </div>
+<div class="flex items-center gap-2">
+<span class="text-papaya font-bold">✓</span> JWT Authentication &amp; RBAC Authorization
+            </div>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="p-6 rounded-xl bg-track-100 dark:bg-carbon-850 border-t-4 border-t-papaya border-x border-b border-track-200 dark:border-carbon-border flex flex-col justify-between space-y-4 hover:border-papaya/60 transition-all">
+<div class="space-y-3">
+<div class="w-12 h-12 rounded-lg bg-papaya/10 text-papaya flex items-center justify-center font-headline font-black text-xl">
+<span class="material-symbols-outlined text-[26px]">hub</span>
+</div>
+<h3 class="font-headline text-2xl sm:text-3xl font-bold uppercase text-track-text dark:text-white">
+              LAN-First &amp; Systems Architecture
+            </h3>
+<p class="font-body text-sm text-track-subtext dark:text-gray-300 leading-relaxed">
+              Architecting software with local storage parity and zero cloud preconditions. Deployed localized, LAN-first strategies for hospital data systems (CDC Medical College) ensuring offline reliability and strict patient data privacy.
+            </p>
+</div>
+<div class="pt-3 border-t border-track-200 dark:border-carbon-700/60 font-mono text-xs space-y-1.5 text-track-subtext dark:text-gray-300">
+<div class="flex items-center gap-2">
+<span class="text-papaya font-bold">✓</span> Offline LAN-First Deployment Strategies
+            </div>
+<div class="flex items-center gap-2">
+<span class="text-papaya font-bold">✓</span> Embedded IoT Telemetry &amp; HUD Protocols
+            </div>
+<div class="flex items-center gap-2">
+<span class="text-papaya font-bold">✓</span> Deterministic State-Machine Game Engines
+            </div>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="p-6 rounded-xl bg-track-100 dark:bg-carbon-850 border-t-4 border-t-papaya border-x border-b border-track-200 dark:border-carbon-border flex flex-col justify-between space-y-4 hover:border-papaya/60 transition-all">
+<div class="space-y-3">
+<div class="w-12 h-12 rounded-lg bg-papaya/10 text-papaya flex items-center justify-center font-headline font-black text-xl">
+<span class="material-symbols-outlined text-[26px]">cloud</span>
+</div>
+<h3 class="font-headline text-2xl sm:text-3xl font-bold uppercase text-track-text dark:text-white">
+              Full-Stack &amp; Cloud Edge Integration
+            </h3>
+<p class="font-body text-sm text-track-subtext dark:text-gray-300 leading-relaxed">
+              Reactive frontends in React, Next.js, and Angular paired with cloud edge tools. Deployed LLM pipelines on Hugging Face using Cloudflare Workers/Tunnels, and Supabase database triggers for automated profile creation.
+            </p>
+</div>
+<div class="pt-3 border-t border-track-200 dark:border-carbon-700/60 font-mono text-xs space-y-1.5 text-track-subtext dark:text-gray-300">
+<div class="flex items-center gap-2">
+<span class="text-papaya font-bold">✓</span> React &amp; Next.js Modern Frontend
+            </div>
+<div class="flex items-center gap-2">
+<span class="text-papaya font-bold">✓</span> Cloudflare Workers/Tunnels &amp; Hugging Face
+            </div>
+<div class="flex items-center gap-2">
+<span class="text-papaya font-bold">✓</span> Docker Containerization &amp; Linux Scripting
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 6: LEADERSHIP, INITIATIVES & ACHIEVEMENTS -->
+<section class="space-y-6" id="leadership">
+<div class="border-b border-track-200 dark:border-carbon-border pb-4">
+<div class="flex items-center gap-2 font-mono text-xs text-papaya font-bold uppercase tracking-wider">
+<span class="w-2 h-2 bg-papaya"></span>
+<span>INITIATIVES // LEADERSHIP &amp; COMPETITION</span>
+</div>
+<h2 class="font-headline text-4xl sm:text-5xl font-black uppercase text-track-text dark:text-white tracking-tight">
+          LEADERSHIP &amp; ACHIEVEMENTS
+        </h2>
+<p class="font-body text-sm sm:text-base text-track-subtext dark:text-gray-300 max-w-2xl">
+          Mentoring peer developers, directing entrepreneurship boot camps for 500+ participants, and securing national hackathon ranks.
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Leadership Roles -->
+<div class="space-y-4">
+<div class="p-5 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border">
+<div class="flex items-center justify-between pb-2 border-b border-track-200 dark:border-carbon-700">
+<h3 class="font-headline text-xl font-bold uppercase text-track-text dark:text-white">
+                Student Placement Coordinator &amp; Mentor
+              </h3>
+<span class="font-mono text-xs text-papaya font-semibold">TPU</span>
+</div>
+<p class="font-mono text-xs text-track-subtext dark:text-gray-400 pt-2 pb-2">Training and Placement Unit</p>
+<ul class="space-y-1.5 font-body text-sm text-track-subtext dark:text-gray-300">
+<li class="flex items-start gap-1.5">
+<span class="text-papaya font-bold font-mono">▸</span>
+<span>Recognized as <strong>Most Active Student Placement Coordinator</strong> for orchestrating recruitment drives for 200+ students.</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-papaya font-bold font-mono">▸</span>
+<span><strong>DSA &amp; LeetCode Mentorship:</strong> Mentored 50+ peers on two-pointers, dynamic programming, and graphs with practice sheets and code reviews.</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-papaya font-bold font-mono">▸</span>
+<span><strong>Mock Technical Interviews:</strong> Conducted 5-criteria standardized evaluation interviews for live coding, system design, and communication.</span>
+</li>
+</ul>
+</div>
+<div class="p-5 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border">
+<div class="flex items-center justify-between pb-2 border-b border-track-200 dark:border-carbon-700">
+<h3 class="font-headline text-xl font-bold uppercase text-track-text dark:text-white">
+                Chief Operating Officer (COO) / Co-Lead
+              </h3>
+<span class="font-mono text-xs text-papaya font-semibold">IEDC</span>
+</div>
+<p class="font-mono text-xs text-track-subtext dark:text-gray-400 pt-2 pb-2">Innovation and Entrepreneurship Development Centre</p>
+<p class="font-body text-sm text-track-subtext dark:text-gray-300">
+              Directed entrepreneurship boot camps and hackathons for 500+ participants; awarded <strong>Mr. Inceptra</strong> at IEDC Inceptra for technical pitch and leadership.
+            </p>
+</div>
+<div class="p-5 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border">
+<div class="flex items-center justify-between pb-2 border-b border-track-200 dark:border-carbon-700">
+<h3 class="font-headline text-xl font-bold uppercase text-track-text dark:text-white">
+                Division Lead
+              </h3>
+<span class="font-mono text-xs text-papaya font-semibold">IEEE SIGHT</span>
+</div>
+<p class="font-mono text-xs text-track-subtext dark:text-gray-400 pt-2 pb-2">Special Interest Group on Humanitarian Technology</p>
+<p class="font-body text-sm text-track-subtext dark:text-gray-300">
+              Led student engineering teams building community-focused humanitarian solutions and organized technical workshops.
+            </p>
+</div>
+</div>
+<!-- Honors & Awards -->
+<div class="p-6 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border flex flex-col justify-between">
+<div class="space-y-4">
+<div class="flex items-center gap-2 border-b border-track-200 dark:border-carbon-700 pb-3">
+<span class="material-symbols-outlined text-papaya text-2xl">trophy</span>
+<h3 class="font-headline text-2xl font-bold uppercase text-track-text dark:text-white">
+                COMPETITIVE HONORS &amp; AWARDS
+              </h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<div class="px-2 py-1 rounded bg-papaya text-black font-headline font-black text-sm uppercase">WINNER</div>
+<div>
+<h4 class="font-headline text-lg font-bold text-track-text dark:text-white uppercase">Market Masters — Trydan'25</h4>
+<p class="font-body text-sm text-track-subtext dark:text-gray-300">Secured first position with a cash prize for outstanding performance in marketing and innovation.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="px-2 py-1 rounded bg-papaya text-black font-headline font-black text-sm uppercase">WINNER</div>
+<div>
+<h4 class="font-headline text-lg font-bold text-track-text dark:text-white uppercase">Sphota 24-Hour Hackathon</h4>
+<p class="font-body text-sm text-track-subtext dark:text-gray-300">Secured first place in the 24-hour hackathon (Team Synapse, IEEE).</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="px-2 py-1 rounded bg-track-200 dark:bg-carbon-800 text-papaya border border-papaya/30 font-headline font-bold text-sm uppercase">NATIONAL</div>
+<div>
+<h4 class="font-headline text-lg font-bold text-track-text dark:text-white uppercase">Smart India Hackathon (SIH) 2024 &amp; 2025</h4>
+<p class="font-body text-sm text-track-subtext dark:text-gray-300">Qualified for both 2024 and 2025 editions at internal college level, advancing to the national-level hackathon pool.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-track-200 dark:border-carbon-700 font-mono text-xs text-track-subtext dark:text-gray-400 flex items-center justify-between">
+<span>VERIFIED COMPETITION RECORDS</span>
+<span class="text-papaya font-bold">100% SUCCESS RATE</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 7: EDUCATION & CERTIFICATIONS -->
+<section class="space-y-6" id="education">
+<div class="border-b border-track-200 dark:border-carbon-border pb-4">
+<div class="flex items-center gap-2 font-mono text-xs text-papaya font-bold uppercase tracking-wider">
+<span class="w-2 h-2 bg-papaya"></span>
+<span>ACADEMICS // CERTIFICATIONS &amp; SPEC</span>
+</div>
+<h2 class="font-headline text-4xl sm:text-5xl font-black uppercase text-track-text dark:text-white tracking-tight">
+          EDUCATION &amp; CERTIFICATIONS
+        </h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Academic Degree (7 cols) -->
+<div class="lg:col-span-7 p-6 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border flex flex-col justify-between space-y-4">
+<div class="space-y-3">
+<div class="flex items-center justify-between font-mono text-xs">
+<span class="text-papaya font-bold uppercase">DEGREE // BACHELOR OF TECHNOLOGY</span>
+<span class="px-2 py-0.5 rounded bg-papaya/10 text-papaya border border-papaya/30 font-bold uppercase">2022 – 2026</span>
+</div>
+<h3 class="font-headline text-3xl font-bold uppercase text-track-text dark:text-white">
+              B.Tech in Computer Science &amp; Engineering
+            </h3>
+<p class="font-headline text-xl text-track-subtext dark:text-gray-300 font-semibold uppercase">
+              Mar Baselios College of Engineering and Technology
+            </p>
+<p class="font-body text-sm text-track-subtext dark:text-gray-300">
+              Specializing in Data Structures, System Design, Relational Database Systems, Object-Oriented Programming, and Web Architectures.
+            </p>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-4 border-t border-track-200 dark:border-carbon-700 font-mono text-xs">
+<div class="p-3 rounded bg-track-50 dark:bg-carbon-900 border border-track-200 dark:border-carbon-800">
+<span class="text-gray-500 block uppercase">CUMULATIVE CGPA</span>
+<span class="font-headline text-2xl font-black text-papaya">7.80 / 10</span>
+</div>
+<div class="p-3 rounded bg-track-50 dark:bg-carbon-900 border border-track-200 dark:border-carbon-800">
+<span class="text-gray-500 block uppercase">CURRENT SEMESTER</span>
+<span class="font-headline text-2xl font-black text-track-text dark:text-white">S6 2026</span>
+</div>
+</div>
+</div>
+<!-- Certifications (5 cols) -->
+<div class="lg:col-span-5 p-6 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border space-y-4">
+<div class="flex items-center gap-2 border-b border-track-200 dark:border-carbon-700 pb-3">
+<span class="material-symbols-outlined text-papaya text-xl">workspace_premium</span>
+<h3 class="font-headline text-2xl font-bold uppercase text-track-text dark:text-white">
+              CERTIFICATIONS
+            </h3>
+</div>
+<div class="space-y-3 font-mono text-xs">
+<div class="p-3 rounded bg-track-50 dark:bg-carbon-900 border border-track-200 dark:border-carbon-800 space-y-1">
+<div class="flex items-center justify-between text-papaya font-bold">
+<span>NPTEL (IIT Madras)</span>
+<span>8-WEEK COURSE</span>
+</div>
+<p class="font-body text-sm text-track-text dark:text-gray-200 font-medium">Programming, Data Structures and Algorithms using Python</p>
+</div>
+<div class="p-3 rounded bg-track-50 dark:bg-carbon-900 border border-track-200 dark:border-carbon-800 space-y-1">
+<div class="flex items-center justify-between text-papaya font-bold">
+<span>Infosys Springboard</span>
+<span>2022</span>
+</div>
+<p class="font-body text-sm text-track-text dark:text-gray-200 font-medium">Java Programming</p>
+</div>
+<div class="p-3 rounded bg-track-50 dark:bg-carbon-900 border border-track-200 dark:border-carbon-800 space-y-1">
+<div class="flex items-center justify-between text-papaya font-bold">
+<span>Scaler Topics</span>
+<span>SPEC VERIFIED</span>
+</div>
+<p class="font-body text-sm text-track-text dark:text-gray-200 font-medium">Python and MySQL for Data Science</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 8: INTERACTIVE PIT-WALL TERMINAL CONTACT -->
+<section class="space-y-6" id="contact">
+<div class="border-b border-track-200 dark:border-carbon-border pb-4">
+<div class="flex items-center gap-2 font-mono text-xs text-papaya font-bold uppercase tracking-wider">
+<span class="w-2 h-2 bg-papaya"></span>
+<span>PIT_WALL.DISPATCH // CONTACT DAEMON</span>
+</div>
+<h2 class="font-headline text-4xl sm:text-5xl font-black uppercase text-track-text dark:text-white tracking-tight">
+          DIRECT TELEMETRY &amp; INTERACTIVE TERMINAL
+        </h2>
+</div>
+<div class="max-w-4xl mx-auto space-y-4">
+<!-- Terminal Window Card -->
+<div class="rounded-xl bg-track-100 dark:bg-carbon-950 border border-track-200 dark:border-carbon-700 shadow-2xl p-5 sm:p-7 space-y-4">
+<!-- Terminal Titlebar -->
+<div class="flex items-center justify-between border-b border-track-200 dark:border-carbon-800 pb-3">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-red-500"></span>
+<span class="w-3 h-3 rounded-full bg-amber-400"></span>
+<span class="w-3 h-3 rounded-full bg-green-500"></span>
+<span class="font-mono text-xs text-track-subtext dark:text-gray-400 ml-2">advaith@ln4-station:~/contact</span>
+</div>
+<span class="font-mono text-[11px] text-papaya font-bold uppercase tracking-widest">ENCRYPTED_SSH-ED25519</span>
+</div>
+<!-- Terminal Content & JSON Output directly from Resume -->
+<div class="font-mono text-xs sm:text-sm text-track-text dark:text-gray-200 space-y-3">
+<p class="text-track-subtext dark:text-gray-400">
+<span class="text-papaya font-bold">advaith@ln4-station:~$</span> contact --get-endpoints --output=json
+            </p>
+<div class="p-4 rounded-lg bg-track-50 dark:bg-carbon-900 border border-track-200 dark:border-carbon-800 font-mono leading-relaxed space-y-1">
+<div class="text-gray-500">{</div>
+<div class="pl-4">
+<span class="text-papaya">"engineer":</span> <span class="text-track-text dark:text-white">"Advaith Manoj"</span>,
+              </div>
+<div class="pl-4">
+<span class="text-papaya">"email":</span> <span class="text-track-text dark:text-white">"advaithmanojkumar@gmail.com"</span>,
+              </div>
+<div class="pl-4">
+<span class="text-papaya">"phone":</span> <span class="text-track-text dark:text-white">"+91 8281352990"</span>,
+              </div>
+<div class="pl-4">
+<span class="text-papaya">"location":</span> <span class="text-track-text dark:text-white">"Trivandrum, Kerala"</span>,
+              </div>
+<div class="pl-4">
+<span class="text-papaya">"github":</span> <span class="text-track-text dark:text-white">"https://github.com/advaithmanoj-05"</span>,
+              </div>
+<div class="pl-4">
+<span class="text-papaya">"linkedin":</span> <span class="text-track-text dark:text-white">"https://www.linkedin.com/in/advaith-manoj-023b12291"</span>,
+              </div>
+<div class="pl-4">
+<span class="text-papaya">"leetcode":</span> <span class="text-track-text dark:text-white">"https://leetcode.com/u/advaithmanoj-05/"</span>,
+              </div>
+<div class="pl-4">
+<span class="text-papaya">"roles":</span> <span class="text-track-subtext dark:text-gray-300">[ "Software Development Engineer", "Full-Stack Developer", "Systems Architect" ]</span>,
+              </div>
+<div class="pl-4">
+<span class="text-papaya">"status":</span> <span class="text-emerald-500 font-bold">"AVAILABLE_FOR_ROLES"</span>
+</div>
+<div class="text-gray-500">}</div>
+</div>
+<!-- Terminal Interactive CLI Action -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
+<div class="flex items-center gap-2">
+<span class="text-papaya font-bold">advaith@ln4-station:~$</span>
+<span class="text-track-subtext dark:text-gray-300">mailx advaithmanojkumar@gmail.com</span>
+<span class="inline-block w-2 h-4 bg-papaya animate-pulse"></span>
+</div>
+<!-- Terminal Button Actions -->
+<div class="flex items-center gap-2">
+<button class="px-3.5 py-2 rounded bg-track-200 dark:bg-carbon-800 hover:border-papaya border border-transparent font-mono text-xs font-semibold text-track-text dark:text-gray-200 hover:text-papaya transition-all flex items-center gap-1.5" id="copy-email-btn" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span id="copy-text">copy::email</span>
+</button>
+<a class="px-4 py-2 rounded bg-papaya text-black font-headline text-base font-bold uppercase tracking-wider hover:bg-papaya-light transition-all flex items-center gap-1.5 shadow-md shadow-papaya/20" href="mailto:advaithmanojkumar@gmail.com">
+<span class="material-symbols-outlined text-[16px]">send</span>
+<span>dispatch()</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- SSG / Framework Badge Banner -->
+<div class="p-4 rounded-xl bg-track-100 dark:bg-carbon-850 border border-track-200 dark:border-carbon-border flex flex-col sm:flex-row items-center justify-between gap-2 font-mono text-xs text-track-subtext dark:text-gray-300">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-papaya text-lg">verified</span>
+<span class="font-bold text-track-text dark:text-white">Apex Velocity Architecture</span>
+<span>•</span>
+<span>FastAPI / Spring Boot / React / .NET</span>
+</div>
+<div class="flex items-center gap-2 text-papaya font-semibold">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span>Verified Resume Parity</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER: LN4 Speed Telemetry & Signature -->
+<footer class="relative z-10 w-full bg-track-100 dark:bg-carbon-950 border-t border-track-200 dark:border-carbon-border mt-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-xs text-track-subtext dark:text-gray-400">
+<div class="flex items-center gap-4 flex-wrap">
+<div class="flex items-center gap-1">
+<span class="text-papaya font-bold">AM4</span>
+<span>// 2026.ENGINEERING_BUILD</span>
+</div>
+<span class="hidden sm:inline text-track-300 dark:text-carbon-700">|</span>
+<div class="flex items-center gap-1">
+<span class="text-papaya">●</span>
+<span>Trivandrum, Kerala: <span class="text-emerald-500 font-bold">LIVE</span></span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-papaya transition-colors" href="#about">top::init()</a>
+<a class="hover:text-papaya transition-colors" href="#contact">ping::host()</a>
+<span class="text-track-300 dark:text-carbon-700">© 2026 Advaith Manoj. Rigor &amp; Velocity.</span>
+</div>
+</div>
+</footer>
+<!-- JAVASCRIPT: Theme Toggle, Filter Logic & Email Copy -->
+<script>
+    (function() {
+      // 1. Light / Dark Mode Toggle Logic
+      const themeToggle = document.getElementById('theme-toggle');
+      const html = document.documentElement;
+
+      // Check saved preference or default to dark
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      if (savedTheme === 'dark') {
+        html.classList.add('dark');
+        html.classList.remove('light');
+      } else {
+        html.classList.remove('dark');
+        html.classList.add('light');
+      }
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          if (html.classList.contains('dark')) {
+            html.classList.remove('dark');
+            html.classList.add('light');
+            localStorage.setItem('theme', 'light');
+          } else {
+            html.classList.add('dark');
+            html.classList.remove('light');
+            localStorage.setItem('theme', 'dark');
+          }
+        });
+      }
+
+      // 2. Project Filtering Logic
+      const filterBtns = document.querySelectorAll('.filter-pill');
+      const cards = document.querySelectorAll('.project-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('active-pill', 'bg-papaya', 'text-black');
+            b.classList.add('text-track-subtext', 'dark:text-gray-300');
+          });
+
+          btn.classList.add('active-pill', 'bg-papaya', 'text-black');
+          btn.classList.remove('text-track-subtext', 'dark:text-gray-300');
+
+          const category = btn.getAttribute('data-filter');
+
+          cards.forEach(card => {
+            const cardCategories = card.getAttribute('data-category') || '';
+            if (category === 'all' || cardCategories.includes(category)) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // 3. Email Clipboard Copy
+      const copyBtn = document.getElementById('copy-email-btn');
+      const copyText = document.getElementById('copy-text');
+
+      if (copyBtn && copyText) {
+        copyBtn.addEventListener('click', () => {
+          const email = 'advaithmanojkumar@gmail.com';
+          navigator.clipboard.writeText(email).then(() => {
+            copyText.textContent = 'COPIED::OK!';
+            copyBtn.classList.add('text-papaya');
+            setTimeout(() => {
+              copyText.textContent = 'copy::email';
+              copyBtn.classList.remove('text-papaya');
+            }, 2000);
+          }).catch(() => {
+            copyText.textContent = 'ERROR';
+          });
+        });
+      }
+    })();
+  </script>
+</body></html>
